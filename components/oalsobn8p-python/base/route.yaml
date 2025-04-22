@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: oalsobn8p-python
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: oalsobn8p-python 
+  name: oalsobn8p-python
+spec:
+  port:
+    targetPort: 8081 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: oalsobn8p-python
+    weight: 100 
